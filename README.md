@@ -17,7 +17,7 @@ $ids | ForEach-Object { if ($h.ContainsKey($_)) { $h[$_] } else { [pscustomobjec
 }
 ```
 ```powershell
-'Microsoft.WSL','Microsoft.PowerToys','Google.Chrome','Discord.Discord' | ForEach-Object {
+'Microsoft.WSL','Microsoft.PowerToys','Discord.Discord' | ForEach-Object {
     Write-Host "`n>>> $_" -ForegroundColor Cyan
     winget install --id $_ -e --accept-source-agreements --accept-package-agreements
     Write-Host "exit: $LASTEXITCODE" -ForegroundColor $(if ($LASTEXITCODE -eq 0) { 'Green' } else { 'Red' })
