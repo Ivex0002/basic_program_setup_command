@@ -1,15 +1,7 @@
 # basic_program_setup_command
 
 ### 버전 확인
-- 도커, 깃, vscode, wsl, 파워토이
-```powershell
-$ids = 'Docker.DockerDesktop','Git.Git','Microsoft.VisualStudioCode','Microsoft.WSL','Microsoft.PowerToys'
-$p = '^(?<n>.+?)\s+(?<i>\S+)\s+(?<v>\d[\w.\-+]*)\s+winget$'
-$h = @{}
-winget list --disable-interactivity | ForEach-Object { if ($_ -match $p) { $h[$Matches.i] = [pscustomobject]@{ Name=$Matches.n.Trim(); Id=$Matches.i; Version=$Matches.v } } }
-$ids | ForEach-Object { if ($h.ContainsKey($_)) { $h[$_] } else { [pscustomobject]@{ Name='(not installed)'; Id=$_; Version='-' } } } | Format-Table Name, Id, Version -AutoSize
-```
-- UTF8
+- UTF8 : 도커, 깃, vscode, wsl, 파워토이
 ```powershell
 $ids = 'Docker.DockerDesktop','Git.Git','Microsoft.VisualStudioCode','Microsoft.WSL','Microsoft.PowerToys'
 $p = '^(?<n>.+?)\s+(?<i>\S+)\s+(?<v>\d[\w.\-+]*)\s+winget$'
