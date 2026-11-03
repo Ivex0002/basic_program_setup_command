@@ -14,10 +14,8 @@ $ids | ForEach-Object { if ($h.ContainsKey($_)) { $h[$_] } else { [pscustomobjec
 $ids = 'Docker.DockerDesktop','Git.Git','Microsoft.VisualStudioCode','Microsoft.WSL','Microsoft.PowerToys'
 $p = '^(?<n>.+?)\s+(?<i>\S+)\s+(?<v>\d[\w.\-+]*)\s+winget$'
 $h = @{}
-
 $oldEncoding = [Console]::OutputEncoding
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-
 winget list --disable-interactivity | ForEach-Object {
     if ($_ -match $p) {
         $h[$Matches.i] = [pscustomobject]@{
@@ -27,9 +25,7 @@ winget list --disable-interactivity | ForEach-Object {
         }
     }
 }
-
 [Console]::OutputEncoding = $oldEncoding
-
 $ids | ForEach-Object {
     if ($h.ContainsKey($_)) { $h[$_] }
     else { [pscustomobject]@{ Name='(not installed)'; Id=$_; Version='-' } }
