@@ -31,6 +31,10 @@ $ids | ForEach-Object {
     else { [pscustomobject]@{ Name='(not installed)'; Id=$_; Version='-' } }
 } | Format-Table Name, Id, Version -AutoSize
 ```
+- 도커, 우분투
+```powershell
+wsl -l -v
+```
 ### 설치 명령어
 - wsl, 도커, 깃, vscode
 ```powershell
