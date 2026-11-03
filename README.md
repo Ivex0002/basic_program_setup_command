@@ -10,22 +10,6 @@ $ids | ForEach-Object { if ($h.ContainsKey($_)) { $h[$_] } else { [pscustomobjec
 ```
 ### 설치 명령어
 ```
-winget install --id Docker.DockerDesktop -e --accept-source-agreements --accept-package-agreements; winget install --id Git.Git -e --accept-source-agreements --accept-package-agreements; winget install --id Microsoft.VisualStudioCode -e --accept-source-agreements --accept-package-agreements
-```
-```power shell
-winget install --id Docker.DockerDesktop -e `
-  --accept-source-agreements `
-  --accept-package-agreements
-
-winget install --id Git.Git -e `
-  --accept-source-agreements `
-  --accept-package-agreements
-
-winget install --id Microsoft.VisualStudioCode -e `
-  --accept-source-agreements `
-  --accept-package-agreements
-```
-```
 'Docker.DockerDesktop','Git.Git','Microsoft.VisualStudioCode' | ForEach-Object {
     Write-Host "`n>>> $_" -ForegroundColor Cyan
     winget install --id $_ -e --accept-source-agreements --accept-package-agreements
