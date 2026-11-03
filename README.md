@@ -40,6 +40,10 @@ $ids | ForEach-Object {
     Write-Host "exit: $LASTEXITCODE" -ForegroundColor $(if ($LASTEXITCODE -eq 0) { 'Green' } else { 'Red' })
 }
 ```
+- 우분투
+```powershell
+wsl --install -d Ubuntu
+```
 - 파워토이, 디스코드
 ```powershell
 'Microsoft.PowerToys','Discord.Discord' | ForEach-Object {
