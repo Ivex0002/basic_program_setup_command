@@ -25,3 +25,10 @@ winget install --id Microsoft.VisualStudioCode -e `
   --accept-source-agreements `
   --accept-package-agreements
 ```
+```
+'Docker.DockerDesktop','Git.Git','Microsoft.VisualStudioCode' | ForEach-Object {
+    Write-Host "`n>>> $_" -ForegroundColor Cyan
+    winget install --id $_ -e --accept-source-agreements --accept-package-agreements
+    Write-Host "exit: $LASTEXITCODE" -ForegroundColor $(if ($LASTEXITCODE -eq 0) { 'Green' } else { 'Red' })
+}
+```
