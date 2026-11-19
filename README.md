@@ -56,3 +56,7 @@ wsl --install -d Ubuntu
     Write-Host "exit: $LASTEXITCODE" -ForegroundColor $(if ($LASTEXITCODE -eq 0) { 'Green' } else { 'Red' })
 }
 ```
+# 자동 복구 방지 명령어(ps)
+```powershell
+bcdedit /set '{current}' recoveryenabled No
+```
